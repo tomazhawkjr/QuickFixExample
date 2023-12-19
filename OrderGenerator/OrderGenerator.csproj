@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>dotnet-OrderGenerator-1E26D742-E4CE-4285-A4E0-35B5FFEE3BB0</UserSecretsId>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="quickfix_generator.cfg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="quickfix_generator.cfg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.13" />
+    <PackageReference Include="QuickFix.Net.NETCore" Version="1.8.1" />
+    <PackageReference Include="QuickFix.Net.NETCore.FIX44" Version="1.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OrderLibrary\OrderLibrary.csproj" />
+  </ItemGroup>
+</Project>
